@@ -35,10 +35,31 @@ class Program
                 throw new Exception("Введеное значение не является числом.Пожалуйста введите корректное число");
             }
         }
+        catch (TimeCannotBeZeroException ex)
+        {
+            Console.WriteLine(ex.Message);
+            return;
+        }
+        catch (Exception ex) when (ex.Message == "ФИО спортсмена не было введено" )
+        {
+            Console.WriteLine(ex.Message);
+            return ;
+        }
+        catch (Exception ex) when (ex.Message == "ФИО спортсмена не должно состоять из цифр")
+        {
+            Console.WriteLine(ex.Message);
+            return;
+        }
+        catch (Exception ex) when (ex.Message == "Введеное значение не является числом.Пожалуйста введите корректное число")
+        {
+            Console.WriteLine(ex.Message);
+            return;
+        }
         catch (Exception ex)
         {
             Console.WriteLine("Неизвестный тип исключения");
             Console.WriteLine(ex.Message);
+            return;
         }
 
         Console.WriteLine("Закончилось");
